@@ -14,7 +14,7 @@ const IconButton: React.FC<IconButtonProps> = ({
 }) => {
   return (
     <View style={style}>
-      <Pressable onPress={onPress}>
+      <Pressable testID="icon-button" onPress={onPress}>
         <IconComponent size="md" color="grey" />
       </Pressable>
     </View>
