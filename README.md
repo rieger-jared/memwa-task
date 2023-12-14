@@ -7,6 +7,8 @@ system developed by expo.
 
 To Run the project use `yarn start` to start an expo development server.
 
+the project is formatted using prettier.
+
 ## Testing
 
 Testing has been provided with Jest. To run the tests in this project use
@@ -32,3 +34,8 @@ the next one.
 I would also like to spend more time refactoring the UI system and components so
 that they are as stateless as possible. For stateful ones, I would also add
 testing to ensure that they're always consistent.
+
+## Screenshots
+
+![Main Page](./docs/screen-shot-1.png)
+![Showcase Page](./docs/screen-shot-2.png)
