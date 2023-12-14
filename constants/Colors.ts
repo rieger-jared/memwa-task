@@ -3,6 +3,7 @@ export const colors = {
   current: "currentColor",
   black: "#000",
   white: "#fff",
+  primary: "#8d214a",
   gray: {
     100: "#f7fafc",
     200: "#edf2f7",

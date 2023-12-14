@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import { View, Text, TextInput, Pressable, StyleSheet } from "react-native";
 import { router } from "expo-router";
 import { spacing } from "../../constants/theme-system";
+import PrimaryButton from "../../components/PrimaryButton";
 
 export default function Memories() {
-  const [showcaseDelay, setShowcaseDelay] = useState("");
-  const [isValid, setIsValid] = useState(true);
+  const [showcaseDelay, setShowcaseDelay] = useState("1");
+  const [isValid, setIsValid] = useState(false);
 
   const handleInputChange = (text: string) => {
     const value = parseInt(text, 10);
@@ -17,15 +18,26 @@ export default function Memories() {
     }
   };
 
+  const handleOnPress = () => {
+    if (isValid) {
+      router.push({
+        pathname: "/showcase",
+        params: { transitionDelay: showcaseDelay },
+      });
+    }
+  };
+
   return (
     <View style={styles.center}>
       <View style={styles.vStack}>
-        <Text style={styles.boldText}>Transition Delay in Seconds</Text>
+        <Text style={styles.boldText}>Transition Delay</Text>
         <TextInput
+          placeholder="Transition Delay in Seconds"
           style={styles.input}
           onChangeText={handleInputChange}
           keyboardType="number-pad"
           textAlign="right"
+          defaultValue={showcaseDelay}
         />
         {!isValid && (
           <Text style={styles.errorText}>
@@ -33,17 +45,11 @@ export default function Memories() {
           </Text>
         )}
       </View>
-      <Pressable
-        style={styles.button}
-        onPress={() =>
-          router.push({
-            pathname: "/showcase",
-            params: { transitionDelay: showcaseDelay },
-          })
-        }
-      >
-        <Text style={styles.buttonText}>Showcase</Text>
-      </Pressable>
+      <PrimaryButton
+        isValid={isValid}
+        text="Showcase"
+        onPress={handleOnPress}
+      />
     </View>
   );
 }
