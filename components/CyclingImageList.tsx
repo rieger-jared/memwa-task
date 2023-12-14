@@ -8,12 +8,12 @@ import ImageDots from "./ImageDots";
 
 interface CyclingImageListProps {
   images: ImageData[];
-  interval: number;
+  intervalSeconds: number; // In seconds
 }
 
 const CyclingImageList: React.FC<CyclingImageListProps> = ({
   images,
-  interval,
+  intervalSeconds: interval,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [imageLoaded, setImageLoaded] = useState(false);

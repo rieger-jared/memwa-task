@@ -54,7 +54,7 @@ export default function ShowcaseModal() {
       </Text>
       <View style={styles.imageListContainer}>
         <CyclingImageList
-          interval={parseInt(params.transitionDelay)}
+          intervalSeconds={parseInt(params.transitionDelay || "1")}
           images={memoriesQuery.data.events[0].images}
         />
       </View>

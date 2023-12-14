@@ -24,7 +24,7 @@ jest.useFakeTimers();
 
 test("renders initial image and caption", () => {
   const { getByTestId, getByText } = render(
-    <CyclingImageList images={mockImages} interval={1} />
+    <CyclingImageList images={mockImages} intervalSeconds={1} />
   );
 
   expect(getByTestId("cycling-image").props.source[0].uri).toBe(
@@ -35,12 +35,12 @@ test("renders initial image and caption", () => {
 
 test("loops back to first image and caption after reaching the end", () => {
   const { getByTestId, getByText, update } = render(
-    <CyclingImageList images={mockImages} interval={1} />
+    <CyclingImageList images={mockImages} intervalSeconds={1} />
   );
 
   act(() => {
     jest.advanceTimersByTime(3000);
-    update(<CyclingImageList images={mockImages} interval={1} />);
+    update(<CyclingImageList images={mockImages} intervalSeconds={1} />);
   });
 
   expect(getByTestId("cycling-image").props.source[0].uri).toBe(
