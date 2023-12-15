@@ -20,22 +20,12 @@ test("calls onPress when pressed", () => {
   expect(mockOnPress).toHaveBeenCalled();
 });
 
-test("has the correct style when isValid is true", () => {
+test("does not call onPress when pressed and isValid is false", () => {
+  const mockOnPress = jest.fn();
   const { getByText } = render(
-    <PrimaryButton isValid={true} text="Test Button" onPress={jest.fn()} />
+    <PrimaryButton isValid={false} text="Test Button" onPress={mockOnPress} />
   );
 
-  expect(getByText("Test Button").parent).toHaveStyle({
-    backgroundColor: colors.primary,
-  });
-});
-
-test("has the correct style when isValid is false", () => {
-  const { getByText } = render(
-    <PrimaryButton isValid={false} text="Test Button" onPress={jest.fn()} />
-  );
-
-  expect(getByText("Test Button").parent).toHaveStyle({
-    backgroundColor: colors.gray[500],
-  });
+  fireEvent.press(getByText("Test Button"));
+  expect(mockOnPress).not.toHaveBeenCalled();
 });

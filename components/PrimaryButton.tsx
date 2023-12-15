@@ -15,11 +15,8 @@ const PrimaryButton: React.FC<PrimaryButtonProps> = ({
   onPress,
 }) => (
   <Pressable
-    style={[
-      styles.button,
-      { backgroundColor: isValid ? colors.primary : colors.gray[500] },
-    ]}
-    onPress={onPress}
+    style={[styles.button, { backgroundColor: isValid ? "#8d214a" : "grey" }]}
+    onPress={isValid ? onPress : undefined}
   >
     <Text style={styles.buttonText}>{text}</Text>
   </Pressable>
