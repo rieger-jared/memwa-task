@@ -5,8 +5,8 @@ import { spacing } from "../../constants/theme-system";
 import PrimaryButton from "../../components/PrimaryButton";
 
 export default function Memories() {
-  const [showcaseDelay, setShowcaseDelay] = useState("1");
-  const [isValid, setIsValid] = useState(false);
+  const [showcaseDelay, setShowcaseDelay] = useState("2");
+  const [isValid, setIsValid] = useState(true);
 
   const handleInputChange = (text: string) => {
     const value = parseInt(text, 10);
@@ -68,13 +68,6 @@ const styles = StyleSheet.create({
   },
   boldText: {
     fontWeight: "bold",
-  },
-  button: {
-    backgroundColor: "#8d214a",
-    padding: 10,
-    borderRadius: 5,
-    alignItems: "center",
-    justifyContent: "center",
   },
   buttonText: {
     color: "white",
